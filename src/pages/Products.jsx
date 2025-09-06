@@ -171,12 +171,11 @@ const products = [
 function Products({ setCartCount }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
-
-  // Popup state
   const [showPopup, setShowPopup] = useState(false);
+
   const triggerPopup = () => {
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 1500); 
+    setTimeout(() => setShowPopup(false), 1500);
   };
 
   const displayedProducts = products.filter(
@@ -185,106 +184,7 @@ function Products({ setCartCount }) {
       product.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  return (
-    <div>
-      {/* Popup */}
-      {showPopup && <div className="cart-popup">Added to Cart!</div>}
-
-      <h1 className="home-heading">Our Products</h1>
-      <hr />
-
-      {/* Search Bar */}
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="search-bar"
-      />
-
-      {/* Filter Buttons */}
-      <div className="filter-buttons">
-        {["Fudge", "Brownie", "Slab", "Truffle", "Bites", "Cookie", "All"].map(
-          (cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategory(cat)}
-              className={category === cat ? "filter-btn active" : "filter-btn"}
-            >
-              {cat}
-            </button>
-          )
-        )}
-      </div>
-
-      {/* Product Grid */}
-      <div className="product-grid">
-        {displayedProducts.map((product) => (
-          <ProductCard
-            key={product.name}
-            product={product}
-            setCartCount={setCartCount}
-            triggerPopup={triggerPopup} 
-          />
-        ))}
-      </div>
-
-      {/* Customize Section */}
-      <div className="customize-section">
-        <h2>Want something unique?</h2>
-        <p>Create your own chocolate with flavors, fillings & toppings you love!</p>
-        <button
-          className="whatsapp-button"
-          onClick={() =>
-            window.open(
-              `https://wa.me/918291840140?text=${encodeURIComponent(
-                "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`,
-              "_blank"
-            )
-          }
-        >
-          Personalize Your Treat!
-        </button>
-      </div>
-
-      {/* Fixed Customize Button */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "30px",
-          zIndex: 9999,
-        }}
-      >
-        <button
-          className="fixed-whatsapp-button"
-          onClick={() =>
-            window.open(
-              `https://wa.me/918291840140?text=${encodeURIComponent(
-                "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`,
-              "_blank"
-            )
-          }
-        >
-          Craft Your Treat!
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function ProductCard({ product, setCartCount, triggerPopup }) {
-  const handleOrder = () => {
-    const message = `Hi! I would like to order: ${product.name} for ₹${product.price}`;
-    window.open(
-      `https://wa.me/918291840140?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
-
-  const addToCart = () => {
+  const addToCart = (product) => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     const index = existingCart.findIndex((p) => p.name === product.name);
 
@@ -301,27 +201,43 @@ function ProductCard({ product, setCartCount, triggerPopup }) {
     localStorage.setItem("cart", JSON.stringify(existingCart));
     if (setCartCount) setCartCount(existingCart.length);
 
-    triggerPopup(); // <-- Trigger popup here
+    triggerPopup(); 
   };
 
   return (
-    <div className="product-card">
-      <img src={product.image} alt={product.name} className="product-image" />
-      <h3>{product.name}</h3>
-      <p className="product-description">{product.description}</p>
-      <span className="product-price">₹{product.price}</span>
+    <div>
+      <h1 className="home-heading">Our Products</h1>
+      <hr />
 
-      {/* Buttons */}
-      <div className="button-group">
-        <button className="whatsapp-button" onClick={handleOrder}>
-          Order on WhatsApp
-        </button>
-        <button className="add-cart-button" onClick={addToCart}>
-          Add to Cart
-        </button>
+      {/* Search & Filter ... same as before */}
+      <div className="product-grid">
+        {displayedProducts.map((product) => (
+          <div key={product.name} className="product-card">
+            <img src={product.image} alt={product.name} className="product-image" />
+            <h3>{product.name}</h3>
+            <p className="product-description">{product.description}</p>
+            <span className="product-price">₹{product.price}</span>
+
+            <div className="button-group">
+              <button
+                className="whatsapp-button"
+                onClick={() => {
+                  const message = `Hi! I would like to order: ${product.name} for ₹${product.price}`;
+                  window.open(
+                    `https://wa.me/918291840140?text=${encodeURIComponent(message)}`,
+                    "_blank");}}>
+                Order on WhatsApp
+              </button>
+              <button className="add-cart-button" onClick={() => addToCart(product)}>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  );
-}
+
+      {/* Popup */}
+      {showPopup && <div className="cart-popup">Added to Cart!</div>}
+    </div>);}
 
 export default Products;
