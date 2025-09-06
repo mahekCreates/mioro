@@ -1,12 +1,20 @@
-# React + Vite
+# Mioro – Handmade Chocolate & Desserts Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Mioro is a responsive, visually rich website for a homemade chocolate and dessert business.  
+It allows users to browse products, filter by category, search, and order via WhatsApp.  
+This project demonstrates modern frontend development with React.js, CSS, and local storage for cart functionality.
 
-Currently, two official plugins are available:
+## Features
+- Responsive Design – Works on desktop and mobile  
+- Product Filtering & Search  
+- Order via WhatsApp  
+- Add to Cart Functionality  
+- Custom Treat Section  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+React.js, HTML, CSS, JSX, useState, localStorage, Vite.js, Git & GitHub  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Author
+**Mahek Katwala** – Software Development Student  
+[GitHub Profile](https://github.com/mahekCreates)
