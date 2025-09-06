@@ -170,20 +170,12 @@ const products = [
 function Products({ setCartCount }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
-  const [showPopup, setShowPopup] = useState(false);
 
   const displayedProducts = products.filter(
     (product) =>
       (category === "All" || product.category === category) &&
       product.name.toLowerCase().includes(search.toLowerCase())
   );
-
-  const handleAddToCart = () => {
-    setShowPopup(true);
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 2000);
-  };
 
   return (
     <div>
@@ -221,7 +213,6 @@ function Products({ setCartCount }) {
             key={product.name}
             product={product}
             setCartCount={setCartCount}
-            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
@@ -235,57 +226,37 @@ function Products({ setCartCount }) {
           onClick={() =>
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
-                "Hi! I'd like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`,
-              "_blank"
-            )
-          }
-        >
-          Personalize Your Treat!
-        </button>
+                "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
+              )}`, "_blank" ) } > Personalize Your Treat! </button>
       </div>
 
-      {/* Fixed Customize Button */}
+ {/* Fixed Customize Button */}
       <div
         style={{
           position: "fixed",
           bottom: "20px",
           right: "30px",
           zIndex: 9999,
-        }}
-      >
+       }}>
         <button
           className="fixed-whatsapp-button"
           onClick={() =>
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
-                "Hi! I'd like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`,
-              "_blank"
-            )
-          }
-        >
-          Craft Your Treat!
-        </button>
+                "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
+              )}`,"_blank" )}>
+          Craft Your Treat! </button>
       </div>
-
-      {/* Global Popup */}
-      {showPopup && (
-        <div className="global-popup-message">
-          Added to Cart
-        </div>
-      )}
     </div>
   );
 }
 
-function ProductCard({ product, setCartCount, onAddToCart }) {
+function ProductCard({ product, setCartCount }) {
   const handleOrder = () => {
     const message = `Hi! I would like to order: ${product.name} for ₹${product.price}`;
     window.open(
       `https://wa.me/918291840140?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+      "_blank");
   };
 
   const addToCart = () => {
@@ -304,8 +275,6 @@ function ProductCard({ product, setCartCount, onAddToCart }) {
 
     localStorage.setItem("cart", JSON.stringify(existingCart));
     if (setCartCount) setCartCount(existingCart.length);
-
-    onAddToCart();
   };
 
   return (
@@ -323,7 +292,7 @@ function ProductCard({ product, setCartCount, onAddToCart }) {
         <button className="add-cart-button" onClick={addToCart}>
           Add to Cart
         </button>
-      </div>
+      </div>  
     </div>
   );
 }

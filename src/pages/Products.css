@@ -141,27 +141,6 @@
     margin: 10px 0;
     font-weight:bold;
   }
-
-  .global-popup-message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #4CAF50;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 10000;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
-  }
   
   .whatsapp-button {
     padding: 8px 0px;
@@ -321,21 +300,14 @@
     margin: 15px 0;
   }
 
-  .global-popup-message {
-    top: 10px;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 20px;
-  }
-
   .fixed-whatsapp-button {
     padding: 9.5px 15px;
     font-size: 13px;
-    background: #9bff92;
+    background: #9bff92; 
     color: #2e2e2e;
     border: none;
     border-radius: 30px;
-  }
+  } 
 
   .filter-buttons {
     flex-wrap: nowrap;
@@ -347,7 +319,7 @@
   }
 
   .filter-btn {
-    flex: 0 0 auto;
+    flex: 0 0 auto;  
     min-width: 80px;
   }
 
@@ -360,9 +332,9 @@
   .product-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     justify-content: flex-start;
-    padding: 0px;
+    padding: 0px;   
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -374,12 +346,12 @@
     display: block;
     width: 100%;
     max-width: 190px;
-    max-height: 160px;
+    max-height: 160px; 
     height: auto;
     object-fit: contain;
-    margin: 0 auto 9px;
+    margin: 0 auto 9px; 
   }
-
+  
   .product-card h3 {
     font-size: 13px;
     margin-bottom: 4px;
