@@ -27,14 +27,14 @@ function Cart({ setCartCount }) {
   const increaseQuantity = (index) => {
     const updatedCart = [...cart];
     updatedCart[index].quantity += 1;
-    updateCart(updatedCart, true); // popup triggers
+    updateCart(updatedCart);
   };
 
   const decreaseQuantity = (index) => {
     const updatedCart = [...cart];
     if (updatedCart[index].quantity > 1) {
       updatedCart[index].quantity -= 1;
-      updateCart(updatedCart, true); // optional: popup when decreasing
+      updateCart(updatedCart, true); 
     } else {
       updatedCart.splice(index, 1);
       updateCart(updatedCart);

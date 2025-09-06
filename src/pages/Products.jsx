@@ -173,11 +173,14 @@ function Products({ setCartCount }) {
   const [category, setCategory] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
 
+  let popupTimeout;
+
   const triggerPopup = () => {
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 1500);
+    if (popupTimeout) clearTimeout(popupTimeout); 
+    popupTimeout = setTimeout(() => setShowPopup(false), 1500);
   };
-
+  
   const displayedProducts = products.filter(
     (product) =>
       (category === "All" || product.category === category) &&
