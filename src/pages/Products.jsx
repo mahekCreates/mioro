@@ -237,9 +237,6 @@ function Products({ setCartCount }) {
           </div>
         ))}
       </div>
-
-      {/* Popup */}
-      {showPopup && <div className="cart-popup">Added to Cart!</div>}
     </div>);}
 
 export default Products;
