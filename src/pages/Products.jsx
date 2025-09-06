@@ -167,9 +167,17 @@ const products = [
     description: "Creamy white chocolate swirled with matcha and dark chocolate, topped with crunchy bits.",
   },
 ];
+
 function Products({ setCartCount }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+
+  // Popup state
+  const [showPopup, setShowPopup] = useState(false);
+  const triggerPopup = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 1500); 
+  };
 
   const displayedProducts = products.filter(
     (product) =>
@@ -179,10 +187,13 @@ function Products({ setCartCount }) {
 
   return (
     <div>
+      {/* Popup */}
+      {showPopup && <div className="cart-popup">Added to Cart!</div>}
+
       <h1 className="home-heading">Our Products</h1>
       <hr />
 
-{/* Search Bar */}
+      {/* Search Bar */}
       <input
         type="text"
         placeholder="Search products..."
@@ -191,7 +202,7 @@ function Products({ setCartCount }) {
         className="search-bar"
       />
 
-{/* Filter Buttons */}
+      {/* Filter Buttons */}
       <div className="filter-buttons">
         {["Fudge", "Brownie", "Slab", "Truffle", "Bites", "Cookie", "All"].map(
           (cat) => (
@@ -206,18 +217,19 @@ function Products({ setCartCount }) {
         )}
       </div>
 
-{/* Product Grid */}
+      {/* Product Grid */}
       <div className="product-grid">
         {displayedProducts.map((product) => (
           <ProductCard
             key={product.name}
             product={product}
             setCartCount={setCartCount}
+            triggerPopup={triggerPopup} 
           />
         ))}
       </div>
 
-{/* Customize Section */}
+      {/* Customize Section */}
       <div className="customize-section">
         <h2>Want something unique?</h2>
         <p>Create your own chocolate with flavors, fillings & toppings you love!</p>
@@ -227,36 +239,49 @@ function Products({ setCartCount }) {
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
                 "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`, "_blank" ) } > Personalize Your Treat! </button>
+              )}`,
+              "_blank"
+            )
+          }
+        >
+          Personalize Your Treat!
+        </button>
       </div>
 
- {/* Fixed Customize Button */}
+      {/* Fixed Customize Button */}
       <div
         style={{
           position: "fixed",
           bottom: "20px",
           right: "30px",
           zIndex: 9999,
-       }}>
+        }}
+      >
         <button
           className="fixed-whatsapp-button"
           onClick={() =>
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
                 "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`,"_blank" )}>
-          Craft Your Treat! </button>
+              )}`,
+              "_blank"
+            )
+          }
+        >
+          Craft Your Treat!
+        </button>
       </div>
     </div>
   );
 }
 
-function ProductCard({ product, setCartCount }) {
+function ProductCard({ product, setCartCount, triggerPopup }) {
   const handleOrder = () => {
     const message = `Hi! I would like to order: ${product.name} for ₹${product.price}`;
     window.open(
       `https://wa.me/918291840140?text=${encodeURIComponent(message)}`,
-      "_blank");
+      "_blank"
+    );
   };
 
   const addToCart = () => {
@@ -275,6 +300,8 @@ function ProductCard({ product, setCartCount }) {
 
     localStorage.setItem("cart", JSON.stringify(existingCart));
     if (setCartCount) setCartCount(existingCart.length);
+
+    triggerPopup(); // <-- Trigger popup here
   };
 
   return (
@@ -292,7 +319,7 @@ function ProductCard({ product, setCartCount }) {
         <button className="add-cart-button" onClick={addToCart}>
           Add to Cart
         </button>
-      </div>  
+      </div>
     </div>
   );
 }

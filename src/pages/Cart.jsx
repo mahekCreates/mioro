@@ -27,17 +27,18 @@ function Cart({ setCartCount }) {
   const increaseQuantity = (index) => {
     const updatedCart = [...cart];
     updatedCart[index].quantity += 1;
-    updateCart(updatedCart);
+    updateCart(updatedCart, true); // popup triggers
   };
 
   const decreaseQuantity = (index) => {
     const updatedCart = [...cart];
     if (updatedCart[index].quantity > 1) {
       updatedCart[index].quantity -= 1;
+      updateCart(updatedCart, true); // optional: popup when decreasing
     } else {
       updatedCart.splice(index, 1);
+      updateCart(updatedCart);
     }
-    updateCart(updatedCart);
   };
 
   const removeFromCart = (index) => {
@@ -108,11 +109,7 @@ function Cart({ setCartCount }) {
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
                 "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`,
-              "_blank"
-            )
-          }
-        >
+              )}`, "_blank")}>
           Customize on WhatsApp
         </button>
       </div>
