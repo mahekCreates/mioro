@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fffaf9;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #800000;
+}
+
+nav {
+  padding: 10px 20px;
+  background-color: #ffe7e7;
+  border-bottom: 1px solid #f5dede;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  padding-left: 37px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  padding-right: 55px;
+  font-size: 19px;
+}
+
+.nav-links a {
+  font-weight: bold;
+  color: #991717;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  color: hsl(0, 100%, 59%);
+}
+
+.cart-icon-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-dot {
+  position: absolute;
+  top: -2px;
+  right: -2.5px;
+  width: 9px;
+  height: 9px;
+  background-color: rgb(2, 236, 2);
+  border-radius: 50%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+footer {
+  background-color: #fceeee;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #800000;
+  border-top: 1px solid #f5dede;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 10px;
+    gap: 15px;
+  }
+
+  .logo {
+    height: 60px;
+    padding-left: 0;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 50px;
+    font-size: 16px;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .container {
+    padding: 5px;
+  }
+
+  footer {
+    padding: 15px 5px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 50px;
+  }
+
+  .nav-links {
+    font-size: 15px;
+    gap: 29px;
+  }
+}

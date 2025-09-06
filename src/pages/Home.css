@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.home {
+  padding: 20px;
+  font-family: 'Quicksand', sans-serif;
+  color: #4b2e05;
+  background-color: #fff3f3;
+}
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+
+.hero-left img,
+.hero-right img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 8px 8px 15px rgba(75, 46, 5, 0.3);
+}
+
+.hero-center {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-center h1 {
+  font-size: 47px;
+  margin-bottom: 10px;
+  color: #6b1d0a;
+  font-style: italic;
+}
+
+.hero-center p {
+  font-size: 21px;
+  color: #6d130d;
+  font-style: italic;
+}
+
+/* About section */
+.about {
+  background-color: #ffdfdf;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #641906;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #641906;
+  max-width: 600px;
+  margin: 0 auto 10px;
+}
+
+.signature {
+  font-style: italic;
+  font-weight: bold;
+  color: #6b250a;
+}
+
+/* Product section */
+.product-categories {
+  margin-bottom: 40px;
+}
+
+.product-categories h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #662507;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 0 10px;
+}
+
+.mobile-only{
+  display: none;
+}
+
+@media (max-width: 480px) {
+
+  .mobile-only {
+    display: block;
+  }
+  
+  .hero-tagline,hr {
+    display: none;
+  }
+  .hero {
+    flex-direction: row;    
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 48%;;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin: 0;
+  }
+
+  .hero-left img{
+    max-width: 220px;  
+    box-shadow: 5px 5px 10px rgba(75, 46, 5, 0.25);
+    opacity: 0;
+    transform: translateY(40px);
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .hero-right img {
+    max-width: 220px;  
+    box-shadow: 5px 5px 10px rgba(75, 46, 5, 0.25);
+    opacity: 0;
+    transform: translateY(40px);
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .hero-left img.visible,
+  .hero-right img.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .hero-center {
+    padding: 0;
+    margin: 10px 0 20px;
+    order: -1; 
+    margin-bottom: 10px;
+  }
+
+  .hero-center h1 {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    padding-right: 20px;
+  }
+
+  .hero-right::after {
+    content: "Indulge in handcrafted chocolates and desserts made with love, just for you.";
+    display: block;
+    font-size: 17px;
+    line-height: 1.4;
+    margin-top: 25px;
+    max-width: 300px;
+    text-align: left;
+    color: #6d130d;
+    padding-left: 35px;
+    text-align:center;
+    margin-left: 10px;
+    margin-right: -145px
+  }
+
+  .about {
+    padding: 18px 12px;
+    margin: 20px 10px;
+  }
+
+  .about h2 {
+    font-size: 1.2rem;
+    margin-bottom: 7px;
+  }
+
+  .about p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-grid img {
+    width: 150px;
+    height: 200px;
+    padding: 4px 0px;       
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .product-grid img.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+}
