@@ -7,32 +7,32 @@ const products = [
   {
     id: 1,
     title: 'Chocolate Brownie',
-    image: '/assets/brownie1.jpg',
+    image: '/mioro/assets/brownie1.jpg',
   },
   {
     id: 2,
     title: 'Choco Fudge',
-    image: '/assets/Lemon.jpg',
+    image: '/mioro/assets/Lemon.jpg',
   },
   {
     id: 3,
     title: 'Choco Truffle',
-    image: '/assets/OreoBite.jpg',
+    image: '/mioro/assets/OreoBite.jpg',
   },
   {
     id: 4,
     title: 'Heart Bites',
-    image: '/assets/HeartBites.jpg',
+    image: '/mioro/assets/HeartBites.jpg',
   },
   {
     id: 5,
     title: 'Oreo Slab',
-    image: '/assets/OreoSlab.jpg',
+    image: '/mioro/assets/OreoSlab.jpg',
   },
   {
     id: 6,
     title: 'Cookie',
-    image: '/assets/Cookie.jpg',
+    image: '/mioro/assets/Cookie.jpg',
   },
 ];
 
@@ -60,7 +60,7 @@ function Home() {
     <div className="home">
       <section className="hero">
         <div className="hero-left">
-          <img src="/assets/main1.jpg" alt="mains" className="hero-image" />
+          <img src="/mioro/assets/main1.jpg" alt="mains" className="hero-image" />
         </div>
         <div className="hero-center">
         <div className="hero-center">
@@ -69,7 +69,7 @@ function Home() {
         </div>
         </div>
         <div className="hero-right">
-          <img src="/assets/main2.jpg" alt="mains" className="hero-image" />
+          <img src="/mioro/assets/main2.jpg" alt="mains" className="hero-image" />
         </div>
       </section>
 

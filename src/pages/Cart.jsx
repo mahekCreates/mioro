@@ -56,7 +56,7 @@ function Cart({ setCartCount }) {
 
       {cart.length === 0 ? (
         <div className="cart-empty">
-          <img src="/assets/2.png" alt="Empty Cart" />
+          <img src="/mioro/assets/2.png" alt="Empty Cart" />
           <h2>Your cart is empty!</h2>
           <p>Start adding some treats to see them here</p>
           <a href="/products" className="shop-now-btn">Browse Products</a>
