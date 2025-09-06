@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Cart({ setCartCount }) {
   const [cart, setCart] = useState([]);
-  const [showPopup, setShowPopup] = useState(false); 
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -14,7 +14,7 @@ function Cart({ setCartCount }) {
 
   const triggerPopup = () => {
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 1500); 
+    setTimeout(() => setShowPopup(false), 1500);
   };
 
   const updateCart = (updatedCart, showAdded = false) => {
@@ -52,10 +52,7 @@ function Cart({ setCartCount }) {
     const total = cart.reduce((sum, item) => sum + item.priceValue * item.quantity, 0);
     const message = `Hi! I would like to order: ${itemsList}. Total: ₹${total}`;
 
-    window.open(
-      `https://wa.me/918291840140?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+    window.open(`https://wa.me/918291840140?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
@@ -82,7 +79,6 @@ function Cart({ setCartCount }) {
                   <h3>{item.name}</h3>
                   <p>{item.price}</p>
                 </div>
-
                 <div className="cart-controls">
                   <button className="qty-btn" onClick={() => decreaseQuantity(index)}>-</button>
                   <span className="qty">{item.quantity}</span>
@@ -103,7 +99,6 @@ function Cart({ setCartCount }) {
         </div>
       )}
 
-      {/* Customize Section */}
       <div className="cart-customize-section">
         <h2>Want something unique?</h2>
         <p>Create your own chocolate/dessert with flavors, fillings & toppings you love!</p>
@@ -113,9 +108,14 @@ function Cart({ setCartCount }) {
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
                 "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`, "_blank" ) } > Customize on WhatsApp </button>
+              )}`,
+              "_blank"
+            )
+          }
+        >
+          Customize on WhatsApp
+        </button>
       </div>
-
     </div>
   );
 }
