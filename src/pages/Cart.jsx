@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Cart.css";
+import { Link } from "react-router-dom";
 
 function Cart({ setCartCount }) {
   const [cart, setCart] = useState([]);
@@ -59,8 +60,8 @@ function Cart({ setCartCount }) {
           <img src="/mioro/assets/2.png" alt="Empty Cart" />
           <h2>Your cart is empty!</h2>
           <p>Start adding some treats to see them here</p>
-          <a href="/products" className="shop-now-btn">Browse Products</a>
-        </div>
+          <Link to="/products" className="shop-now-btn">Browse Products</Link>
+          </div>
       ) : (
         <div>
           <ul className="cart-list">
