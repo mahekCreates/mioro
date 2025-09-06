@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Products.css";
 
 const products = [
@@ -172,15 +172,14 @@ function Products({ setCartCount }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
-
-  let popupTimeout;
+  const popupTimeout = useRef(null);
 
   const triggerPopup = () => {
     setShowPopup(true);
-    if (popupTimeout) clearTimeout(popupTimeout); 
-    popupTimeout = setTimeout(() => setShowPopup(false), 1500);
+    if (popupTimeout.current) clearTimeout(popupTimeout.current);
+    popupTimeout.current = setTimeout(() => setShowPopup(false), 1500);
   };
-  
+
   const displayedProducts = products.filter(
     (product) =>
       (category === "All" || product.category === category) &&
