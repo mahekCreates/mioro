@@ -170,12 +170,20 @@ const products = [
 function Products({ setCartCount }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [showPopup, setShowPopup] = useState(false);
 
   const displayedProducts = products.filter(
     (product) =>
       (category === "All" || product.category === category) &&
       product.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleAddToCart = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000);
+  };
 
   return (
     <div>
@@ -213,6 +221,7 @@ function Products({ setCartCount }) {
             key={product.name}
             product={product}
             setCartCount={setCartCount}
+            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
@@ -259,13 +268,18 @@ function Products({ setCartCount }) {
           Craft Your Treat!
         </button>
       </div>
+
+      {/* Global Popup */}
+      {showPopup && (
+        <div className="global-popup-message">
+          Added to Cart
+        </div>
+      )}
     </div>
   );
 }
 
-function ProductCard({ product, setCartCount }) {
-  const [showPopup, setShowPopup] = useState(false);
-
+function ProductCard({ product, setCartCount, onAddToCart }) {
   const handleOrder = () => {
     const message = `Hi! I would like to order: ${product.name} for ₹${product.price}`;
     window.open(
@@ -291,10 +305,7 @@ function ProductCard({ product, setCartCount }) {
     localStorage.setItem("cart", JSON.stringify(existingCart));
     if (setCartCount) setCartCount(existingCart.length);
 
-    setShowPopup(true);
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 2000);
+    onAddToCart();
   };
 
   return (
@@ -313,12 +324,6 @@ function ProductCard({ product, setCartCount }) {
           Add to Cart
         </button>
       </div>
-
-      {showPopup && (
-        <div className="popup-message">
-          Added to Cart
-        </div>
-      )}
     </div>
   );
 }
