@@ -37,12 +37,13 @@
 .cart-empty h2 {
   font-size: 34px;
   font-weight: 600;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
   
 .cart-empty p {
   font-size: 30px;
   margin: 0;
+  margin-bottom: 18px;
   color: #777;
 }
 

@@ -64,9 +64,9 @@ function Home() {
         </div>
         <div className="hero-center">
         <div className="hero-center">
-  <h1 className="hero-title">"Mioro – Where Every Bite Feels Like Home"</h1> <hr></hr>
-  <p className="hero-tagline">Indulge in handcrafted chocolates and desserts made with love, just for you.</p>
-</div>
+       <h1 className="hero-title">"Mioro – Where Every Bite Feels Like Home"</h1> <hr></hr>
+        <p className="hero-tagline">Indulge in handcrafted chocolates and desserts made with love, just for you.</p>
+        </div>
         </div>
         <div className="hero-right">
           <img src="/assets/main2.jpg" alt="mains" className="hero-image" />
