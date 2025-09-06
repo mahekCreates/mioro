@@ -127,17 +127,7 @@
 }
 
 .cart-popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(107, 10, 10, 0.9);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 1000;
-  animation: fadeInOut 1.5s forwards;
+  display: none;
 }
 
 @keyframes fadeInOut {

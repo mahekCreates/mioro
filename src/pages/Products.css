@@ -39,12 +39,12 @@
   transform: translate(-50%, -50%);
   background: rgba(107, 10, 10, 0.9);
   color: white;
-  padding: 8px 14px;
+  padding: 6px 10px;
   border-radius: 8px;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 1000;
-  max-width: 150px;
+  max-width: 120px;
   font-size: 14px;
   animation: fadeInOut 1.5s forwards;
 }
