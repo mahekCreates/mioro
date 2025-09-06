@@ -7,7 +7,7 @@ const products = [
     price: "50 per piece",
     priceValue: 50,
     category: "Fudge",
-    image: "/assets/choco_fudge1.jpg",
+    image: "/mioro/assets/choco_fudge1.jpg",
     description: "Rich, creamy fudge made with dark chocolate and love.",
   },
   {
@@ -15,7 +15,7 @@ const products = [
     price: "130 each",
     priceValue: 130,
     category: "Brownie",
-    image: "/assets/brownie1.jpg",
+    image: "/mioro/assets/brownie1.jpg",
     description: "Soft, Gooey & Fudgy chocolate brownie dusted with love.",
   },
   {
@@ -23,7 +23,7 @@ const products = [
     price: "40 per piece",
     priceValue: 40,
     category: "Bites",
-    image: "/assets/AlmondRockChoco.jpg",
+    image: "/mioro/assets/AlmondRockChoco.jpg",
     description: "Crunchy almond chunks coated in silky milk chocolate.",
   },
   {
@@ -31,7 +31,7 @@ const products = [
     price: "50 per piece",
     priceValue: 50,
     category: "Bites",
-    image: "/assets/HeartBites.jpg",
+    image: "/mioro/assets/HeartBites.jpg",
     description:
       "Adorable heart-shaped bites with crunchy nuts, berries & bold flavors.",
   },
@@ -40,7 +40,7 @@ const products = [
     price: "120 per slab",
     priceValue: 120,
     category: "Slab",
-    image: "/assets/OreoSlab.jpg",
+    image: "/mioro/assets/OreoSlab.jpg",
     description: "White chocolate slab bursting with Oreo crunch in every bite.",
   },
   {
@@ -48,7 +48,7 @@ const products = [
     price: "60 per piece",
     priceValue: 60,
     category: "Truffle",
-    image: "/assets/chocoTruffle.jpg",
+    image: "/mioro/assets/chocoTruffle.jpg",
     description: "Rich, velvety truffle dusted in cocoa — melts smoothly with every bite.",
   },
   {
@@ -56,7 +56,7 @@ const products = [
     price: "60 per piece",
     priceValue: 60,
     category: "Truffle",
-    image: "/assets/Lemon.jpg",
+    image: "/mioro/assets/Lemon.jpg",
     description:
       "Zesty lemon cream hugged by rich chocolate, with a sparkling sugar crunch.",
   },
@@ -65,7 +65,7 @@ const products = [
     price: "40 per piece",
     priceValue: 40,
     category: "Bites",
-    image: "/assets/Orange.jpg",
+    image: "/mioro/assets/Orange.jpg",
     description: "Silky orange chocolate with a refreshing citrus kick.",
   },
   {
@@ -73,7 +73,7 @@ const products = [
     price: "45 per piece",
     priceValue: 45,
     category: "Bites",
-    image: "/assets/Paan.jpeg",
+    image: "/mioro/assets/Paan.jpeg",
     description:
       "Chocolate hearts drizzled with color, carrying the refreshing twist of paan.",
   },
@@ -82,7 +82,7 @@ const products = [
     price: "40 per piece",
     priceValue: 40,
     category: "Bites",
-    image: "/assets/TuttiFruiti.png",
+    image: "/mioro/assets/TuttiFruiti.png",
     description:
       "Creamy white chocolate sprinkled with vibrant tutti frutti for a playful bite.",
   },
@@ -91,7 +91,7 @@ const products = [
     price: "60 per piece",
     priceValue: 60,
     category: "Truffle",
-    image: "/assets/coconut.jpg",
+    image: "/mioro/assets/coconut.jpg",
     description: "Rich chocolate outside, dreamy coconut inside.",
   },
   {
@@ -99,7 +99,7 @@ const products = [
     price: "45 per piece",
     priceValue: 45,
     category: "Bites",
-    image: "/assets/OreoBite.jpg",
+    image: "/mioro/assets/OreoBite.jpg",
     description: "Crunchy Oreo dipped in smooth chocolate, with a white drizzle for the perfect bite.",
   },
   {
@@ -107,7 +107,7 @@ const products = [
     price: "65 per piece",
     priceValue: 65,
     category: "Truffle",
-    image: "/assets/OreoTruffle.jpg",
+    image: "/mioro/assets/OreoTruffle.jpg",
     description: "Creamy Oreo truffle balls coated in rich chocolate, sprinkled with cookie crumbs for extra delight.",
   },
   {
@@ -115,7 +115,7 @@ const products = [
     price: "50 per piece",
     priceValue: 50,
     category: "Bites",
-    image: "/assets/PomoChoco.jpg",
+    image: "/mioro/assets/PomoChoco.jpg",
     description: "Milk chocolate hearts topped with juicy pomegranate gems, adding a burst of freshness in every bite.",
   },
   {
@@ -123,7 +123,7 @@ const products = [
     price: "90 each",
     priceValue: 90,
     category: "Brownie",
-    image: "/assets/Brookie.jpg",
+    image: "/mioro/assets/Brookie.jpg",
     description: "A fudgy brownie and cookie combined, giving the best of both worlds in every bite.",
   },
   {
@@ -131,7 +131,7 @@ const products = [
     price: "180 per bar",
     priceValue: 180,
     category: "Slab",
-    image: "/assets/Kunafa.jpg",
+    image: "/mioro/assets/Kunafa.jpg",
     description: "Layers of nutty kunafa and rich chocolate, crafted into a crunchy bar of delight.",
   },
   {
@@ -139,7 +139,7 @@ const products = [
     price: "150 each",
     priceValue: 150,
     category: "Cookie",
-    image: "/assets/matchaCookie.jpg",
+    image: "/mioro/assets/matchaCookie.jpg",
     description: "Soft green tea cookie with chunks of creamy white chocolate for a fresh twist.",
   },
   {
@@ -147,7 +147,7 @@ const products = [
     price: "90 each",
     priceValue: 90,
     category: "Cookie",
-    image: "/assets/doubleChocoCookie.jpg",
+    image: "/mioro/assets/doubleChocoCookie.jpg",
     description: "Chewy dark chocolate cookie loaded with melty chocolate chunks for pure indulgence.",
   },
   {
@@ -155,7 +155,7 @@ const products = [
     price: "90 each",
     priceValue: 90,
     category: "Cookie",
-    image: "/assets/Cookie.jpg",
+    image: "/mioro/assets/Cookie.jpg",
     description: "Golden brown cookie with gooey chocolate chips and a hint of sea salt.",
   },
   {
@@ -163,7 +163,7 @@ const products = [
     price: "150 per slab",
     priceValue: 150,
     category: "Slab",
-    image: "/assets/matchaSlab.jpg",
+    image: "/mioro/assets/matchaSlab.jpg",
     description: "Creamy white chocolate swirled with matcha and dark chocolate, topped with crunchy bits.",
   },
 ];
