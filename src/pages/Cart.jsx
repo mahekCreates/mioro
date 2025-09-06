@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Cart({ setCartCount }) {
   const [cart, setCart] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -11,10 +12,16 @@ function Cart({ setCartCount }) {
     if (setCartCount) setCartCount(savedCart.length);
   }, [setCartCount]);
 
-  const updateCart = (updatedCart) => {
+  const triggerPopup = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 1500);
+  };
+
+  const updateCart = (updatedCart, showAdded = false) => {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     if (setCartCount) setCartCount(updatedCart.length);
+    if (showAdded) triggerPopup();
   };
 
   const increaseQuantity = (index) => {
@@ -27,11 +34,10 @@ function Cart({ setCartCount }) {
     const updatedCart = [...cart];
     if (updatedCart[index].quantity > 1) {
       updatedCart[index].quantity -= 1;
-      updateCart(updatedCart);
     } else {
       updatedCart.splice(index, 1);
-      updateCart(updatedCart);
     }
+    updateCart(updatedCart);
   };
 
   const removeFromCart = (index) => {
@@ -52,6 +58,9 @@ function Cart({ setCartCount }) {
   return (
     <div className="cart-page">
       <h1 className="cart-heading">Your Cart</h1>
+
+      {/* Popup */}
+      {showPopup && <div className="cart-popup">Added to Cart!</div>}
 
       {cart.length === 0 ? (
         <div className="cart-empty">
@@ -99,7 +108,7 @@ function Cart({ setCartCount }) {
             window.open(
               `https://wa.me/918291840140?text=${encodeURIComponent(
                 "Hi! I’d like to customize my chocolate/dessert. Can you share the options with me?"
-              )}`, "_blank")}>
+              )}`,"_blank")}>
           Customize on WhatsApp
         </button>
       </div>
