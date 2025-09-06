@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Cart({ setCartCount }) {
   const [cart, setCart] = useState([]);
+  const [showPopup, setShowPopup] = useState(false); 
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -11,10 +12,16 @@ function Cart({ setCartCount }) {
     if (setCartCount) setCartCount(savedCart.length);
   }, [setCartCount]);
 
-  const updateCart = (updatedCart) => {
+  const triggerPopup = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 1500); 
+  };
+
+  const updateCart = (updatedCart, showAdded = false) => {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     if (setCartCount) setCartCount(updatedCart.length);
+    if (showAdded) triggerPopup();
   };
 
   const increaseQuantity = (index) => {
@@ -55,13 +62,16 @@ function Cart({ setCartCount }) {
     <div className="cart-page">
       <h1 className="cart-heading">Your Cart</h1>
 
+      {/* Popup */}
+      {showPopup && <div className="cart-popup">Added to Cart!</div>}
+
       {cart.length === 0 ? (
         <div className="cart-empty">
           <img src="/mioro/assets/2.png" alt="Empty Cart" />
           <h2>Your cart is empty!</h2>
           <p>Start adding some treats to see them here</p>
           <Link to="/products" className="shop-now-btn">Browse Products</Link>
-          </div>
+        </div>
       ) : (
         <div>
           <ul className="cart-list">
