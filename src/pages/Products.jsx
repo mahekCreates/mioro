@@ -170,6 +170,7 @@ const products = [
 function Products({ setCartCount }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [showPopup, setShowPopup] = useState(false);
 
   const displayedProducts = products.filter(
     (product) =>
@@ -179,6 +180,23 @@ function Products({ setCartCount }) {
 
   return (
     <div>
+      {showPopup && (
+        <div style={{
+          position: 'fixed',
+          top: '10%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: '#4CAF50',
+          color: 'white',
+          padding: '10px 20px',
+          borderRadius: '5px',
+          zIndex: 1000,
+          fontSize: '16px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+        }}>
+          Product added to cart!
+        </div>
+      )}
       <h1 className="home-heading">Our Products</h1>
       <hr />
 
@@ -213,6 +231,7 @@ function Products({ setCartCount }) {
             key={product.name}
             product={product}
             setCartCount={setCartCount}
+            setShowPopup={setShowPopup}
           />
         ))}
       </div>
@@ -251,7 +270,7 @@ function Products({ setCartCount }) {
   );
 }
 
-function ProductCard({ product, setCartCount }) {
+function ProductCard({ product, setCartCount, setShowPopup }) {
   const handleOrder = () => {
     const message = `Hi! I would like to order: ${product.name} for ₹${product.price}`;
     window.open(
@@ -275,6 +294,8 @@ function ProductCard({ product, setCartCount }) {
 
     localStorage.setItem("cart", JSON.stringify(existingCart));
     if (setCartCount) setCartCount(existingCart.length);
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000);
   };
 
   return (

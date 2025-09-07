@@ -387,4 +387,11 @@
   .customize-section p {
     font-size: 13px;
   }
+
+  /* Popup for add to cart */
+  div[style*="position: fixed"][style*="top: 10%"] {
+    font-size: 14px !important;
+    padding: 8px 15px !important;
+    border-radius: 4px !important;
+  }
 }
