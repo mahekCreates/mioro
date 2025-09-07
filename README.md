@@ -1,5 +1,8 @@
 # Mioro – Handmade Chocolate & Desserts Website
 
+## Website Link
+Check out the website here: [Mioro Website](https://mahekcreates.github.io/mioro)
+
 ![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-4.4.1-brightgreen)
 ![GitHub repo size](https://img.shields.io/github/repo-size/mahekCreates/mioro)
@@ -33,10 +36,6 @@ React.js, HTML, CSS, JSX, useState, localStorage, Vite.js, Git & GitHub
 
 ### About Page
 ![Custom Treat](screenshots/about.jpg)
-
-
-## Live Demo
-Check out the live website here: [Mioro Website](https://mahekcreates.github.io/mioro)
 
 ## Author
 **Mahek Katwala** – Software Development Student  
